@@ -311,7 +311,7 @@ ${formatStoryList(stories, users)}`);
 		);
 
 		return this.toResult(`Story: sc-${storyPublicId}
-URL:${story.app_url ? ` ${story.app_url}` : ""}
+URL: ${story.app_url}
 Name: ${story.name}
 Type: ${story.story_type}
 Archived: ${story.archived ? "Yes" : "No"}
