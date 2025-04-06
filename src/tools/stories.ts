@@ -316,7 +316,9 @@ Name: ${story.name}
 Type: ${story.story_type}
 Archived: ${story.archived ? "Yes" : "No"}
 Completed: ${story.completed ? "Yes" : "No"}
+Completed at: ${story.completed_at ? story.completed_at : "[Not completed]"}
 Started: ${story.started ? "Yes" : "No"}
+Started at: ${story.started_at ? story.started_at : "[Not started]"}
 Blocked: ${story.blocked ? "Yes" : "No"}
 Blocking: ${story.blocker ? "Yes" : "No"}
 Due date: ${story.deadline ? story.deadline : "[None]"}
