@@ -311,41 +311,41 @@ ${formatStoryList(stories, users)}`);
 		);
 
 		return this.toResult(`Story: sc-${storyPublicId}
-			URL: ${story.app_url}
-			Name: ${story.name}
-			Type: ${story.story_type}
-			Archived: ${story.archived ? "Yes" : "No"}
-			Completed: ${story.completed ? "Yes" : "No"}
-			Completed at: ${story.completed_at ? story.completed_at : "[Not completed]"}
-			Started: ${story.started ? "Yes" : "No"}
-			Started at: ${story.started_at ? story.started_at : "[Not started]"}
-			Blocked: ${story.blocked ? "Yes" : "No"}
-			Blocking: ${story.blocker ? "Yes" : "No"}
-			Due date: ${story.deadline ? story.deadline : "[None]"}
-			Team: ${story.group_id ? `${story.group_id}` : "[None]"}
-			${formatMemberList(story.owner_ids, users, "Owners")}
-			Epic: ${story.epic_id ? `${story.epic_id}` : "[None]"}
-			Iteration: ${story.iteration_id ? `${story.iteration_id}` : "[None]"}
+URL:${story.app_url ? ` ${story.app_url}` : ""}
+Name: ${story.name}
+Type: ${story.story_type}
+Archived: ${story.archived ? "Yes" : "No"}
+Completed: ${story.completed ? "Yes" : "No"}
+Completed at: ${story.completed_at ? story.completed_at : "[Not completed]"}
+Started: ${story.started ? "Yes" : "No"}
+Started at: ${story.started_at ? story.started_at : "[Not started]"}
+Blocked: ${story.blocked ? "Yes" : "No"}
+Blocking: ${story.blocker ? "Yes" : "No"}
+Due date: ${story.deadline ? story.deadline : "[None]"}
+Team: ${story.group_id ? `${story.group_id}` : "[None]"}
+${formatMemberList(story.owner_ids, users, "Owners")}
+Epic: ${story.epic_id ? `${story.epic_id}` : "[None]"}
+Iteration: ${story.iteration_id ? `${story.iteration_id}` : "[None]"}
 
-			Description:
-			${story.description}
+Description:
+${story.description}
 
-			${formatAsUnorderedList(story.external_links, "External Links")}
+${formatAsUnorderedList(story.external_links, "External Links")}
 
-			${formatPullRequestList(story.branches)}
+${formatPullRequestList(story.branches)}
 
-			${formatTaskList(story.tasks)}
+${formatTaskList(story.tasks)}
 
-			Comments:
-			${(story.comments || [])
-				.map((comment) => {
-					const mentionName = comment.author_id
-						? users.get(comment.author_id)?.profile?.mention_name
-						: null;
-					return `- From: ${
-						mentionName ? `@${mentionName}` : `id=${comment.author_id}` || "[Unknown]"
-					} on ${comment.created_at}.\n${comment.text || ""}`;
-				})
-				.join("\n\n")}`);
+Comments:
+${(story.comments || [])
+	.map((comment) => {
+		const mentionName = comment.author_id
+			? users.get(comment.author_id)?.profile?.mention_name
+			: null;
+		return `- From: ${
+			mentionName ? `@${mentionName}` : `id=${comment.author_id}` || "[Unknown]"
+		} on ${comment.created_at}.\n${comment.text || ""}`;
+	})
+	.join("\n\n")}`);
 	}
 }
